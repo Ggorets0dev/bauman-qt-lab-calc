@@ -16,8 +16,10 @@ MainWindow::MainWindow(QWidget *parent)
     validator->setNotation(QDoubleValidator::StandardNotation);
     ui->num_line_edit->setValidator(validator);
 
+    // Выравнивание поля ввода по правому краю
     ui->num_line_edit->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
+    connect(ui->num_zero_push_button, &QPushButton::clicked, this, &MainWindow::addSymbol);
     connect(ui->num_one_push_button, &QPushButton::clicked, this, &MainWindow::addSymbol);
     connect(ui->num_two_push_button, &QPushButton::clicked, this, &MainWindow::addSymbol);
     connect(ui->num_three_push_button, &QPushButton::clicked, this, &MainWindow::addSymbol);
@@ -28,7 +30,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->num_eight_push_button, &QPushButton::clicked, this, &MainWindow::addSymbol);
     connect(ui->num_nine_push_button, &QPushButton::clicked, this, &MainWindow::addSymbol);
 
-    connect(ui->num_zero_push_button, &QPushButton::clicked, this, &MainWindow::addSymbolWithCheck);
     connect(ui->num_dot_push_button, &QPushButton::clicked, this, &MainWindow::addSymbolWithCheck);
 
     connect(ui->gl_clear_push_button, &QPushButton::clicked, this, &MainWindow::clearGlobal);
